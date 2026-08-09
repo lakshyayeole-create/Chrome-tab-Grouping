@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Tab Stash - Saved Stashes</title>
+  <link rel="stylesheet" href="stashes.css">
+</head>
+<body>
+  <div class="app-container">
+    <header class="header">
+      <div class="logo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+        <h1>Tab Optimizer</h1>
+      </div>
+      <nav class="nav-tabs">
+        <a href="popup.html" class="nav-btn">Dashboard</a>
+        <a href="stashes.html" class="nav-btn active">Stashes</a>
+        <a href="settings.html" class="nav-btn">Settings</a>
+      </nav>
+    </header>
+
+    <main class="content">
+      <h2>Saved Sessions</h2>
+      <p class="subtitle">Restore your closed tabs later.</p>
+      
+      <div id="stashes-list" class="stashes-list">
+        <!-- Stashes will be rendered here -->
+      </div>
+    </main>
+  </div>
+  <script type="module" src="stashes.js"></script>
+</body>
+</html>

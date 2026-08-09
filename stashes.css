@@ -1,0 +1,58 @@
+@import url('popup.css');
+
+.subtitle {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+h2 {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.stashes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.stash-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.stash-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.stash-title {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--primary);
+}
+
+.stash-date {
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.stash-meta {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+
+.stash-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.stash-actions .btn {
+  padding: 6px 12px;
+}

@@ -48,7 +48,7 @@ const categoryRules = {
     color: "blue"
   },
   "Media & Entertainment": {
-    domains: ["youtube.com", "netflix.com", "spotify.com", "twitch.tv", "hulu.com", "disneyplus.com", "vimeo.com"],
+    domains: ["youtube.com", "netflix.com", "spotify.com", "twitch.tv", "hulu.com", "disneyplugits.com", "vimeo.com"],
     keywords: ["video", "music", "stream", "movie", "watch"],
     color: "red"
   },

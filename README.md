@@ -4,7 +4,7 @@ A Chrome extension that automatically organizes, monitors, and optimizes your br
 
 ## Features
 
-- **Auto-Group Tabs**: Automatically classifies newly opened tabs based on URLs and titles and groups them into standard topics (e.g., *Dev & Code*, *Research & Search*, *Media & Entertainment*).
+- **Auto-Group Tabs**: Automatically classifies newly opened tabs based on URLs and titles and groups them into standard topics (e.g., *AI & Tools*, *Dev & Code*, *Research & Search*, *Media & Entertainment*).
 - **Smart Grouping**: Prevents duplicate groups. If a tab group for a specific topic already exists in your window, new tabs of that topic are placed directly into it.
 - **Memory Optimizer (Tab Freezing)**: Automatically identifies inactive tabs and discards them after a user-defined threshold (default: 30 minutes) to save RAM. The tabs remain visible in your tab bar and reload instantly when clicked.
 - **Session Stashing**: Save all open tabs in your current window into a "Stash" and restore them later with one click.

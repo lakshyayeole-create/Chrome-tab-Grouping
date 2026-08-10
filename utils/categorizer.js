@@ -1,5 +1,42 @@
 // Basic category mappings by domain or keyword
 const categoryRules = {
+  "AI & Tools": {
+    domains: [
+      "chatgpt.com",
+      "openai.com",
+      "gemini.google.com",
+      "claude.ai",
+      "perplexity.ai",
+      "copilot.microsoft.com",
+      "poe.com",
+      "huggingface.co",
+      "midjourney.com",
+      "v0.dev",
+      "cursor.com",
+      "groq.com",
+      "deepseek.com",
+      "mistral.ai",
+      "elevenlabs.io",
+      "sora.com",
+      "runwayml.com",
+      "phind.com"
+    ],
+    keywords: [
+      "chatgpt",
+      "openai",
+      "gemini",
+      "claude",
+      "perplexity",
+      "copilot",
+      "midjourney",
+      "huggingface",
+      "deepseek",
+      "mistral",
+      "gpt",
+      "llm"
+    ],
+    color: "orange"
+  },
   "Dev & Code": {
     domains: ["github.com", "gitlab.com", "stackoverflow.com", "developer.mozilla.org", "npmjs.com", "codepen.io"],
     keywords: ["code", "developer", "api", "programming", "react", "javascript", "python", "css", "html"],

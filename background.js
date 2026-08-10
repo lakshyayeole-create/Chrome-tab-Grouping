@@ -20,10 +20,10 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
   if (changeInfo.status === 'complete' && tab.url) {
     await updateTabAccessTime(tabId);
     
-    // Auto-Group on open if enabled
+    // Auto-Group on open or URL change if enabled
     const settings = await getSettings();
-    if (settings.autoGroupEnabled && !tab.groupId || tab.groupId === -1) {
-      await autoGroupTabs();
+    if (settings.autoGroupEnabled) {
+      await autoGroupTabs(tab.windowId);
     }
   }
 });
@@ -32,21 +32,34 @@ chrome.tabs.onRemoved.addListener(async (tabId) => {
   await removeTabAccessTime(tabId);
 });
 
-// Auto-group function
-export async function autoGroupTabs() {
-  const tabs = await chrome.tabs.query({ currentWindow: true });
+// Auto-group function (handles new tabs & dynamic re-grouping on URL change)
+export async function autoGroupTabs(windowId = null) {
+  const queryOptions = windowId ? { windowId } : { currentWindow: true };
+  const tabs = await chrome.tabs.query(queryOptions);
   if (tabs.length === 0) return;
   
-  const currentWindowId = tabs[0].windowId;
-  const existingGroups = await chrome.tabGroups.query({ windowId: currentWindowId });
+  const targetWindowId = tabs[0].windowId;
+  const existingGroups = await chrome.tabGroups.query({ windowId: targetWindowId });
   
-  const groupsToCreate = {}; // { catName: { color: 'blue', tabs: [] } }
+  const groupTitleMap = {};
+  existingGroups.forEach(g => {
+    groupTitleMap[g.id] = g.title;
+  });
+
+  const groupsToCreate = {}; // { catName: { color: 'orange', tabs: [] } }
 
   tabs.forEach(tab => {
-    if (!tab.url || tab.url.startsWith('chrome://') || tab.url.startsWith('chrome-extension://') || tab.groupId !== -1) {
+    if (!tab.url || tab.url.startsWith('chrome://') || tab.url.startsWith('chrome-extension://')) {
       return;
     }
     const { title, color } = categorizeTab(tab.url, tab.title || '');
+    
+    // Check if the tab is already in the matching category group
+    const currentGroupTitle = (tab.groupId !== -1 && tab.groupId !== undefined) ? groupTitleMap[tab.groupId] : null;
+    if (currentGroupTitle === title) {
+      return;
+    }
+
     if (!groupsToCreate[title]) {
       groupsToCreate[title] = { color, tabs: [] };
     }

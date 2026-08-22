@@ -2,25 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Smart Tab Stash - Settings</title>
+  <title>Tab Optimizer - Settings</title>
   <link rel="stylesheet" href="settings.css">
 </head>
 <body>
   <div class="app-container">
     <header class="header">
-      <div class="logo">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
-        <h1>Tab Optimizer</h1>
-      </div>
+      <h1 class="app-title">Tab Optimizer</h1>
       <nav class="nav-tabs">
-        <a href="popup.html" class="nav-btn">Dashboard</a>
-        <a href="stashes.html" class="nav-btn">Stashes</a>
-        <a href="settings.html" class="nav-btn active">Settings</a>
+        <a href="popup.html" class="nav-link">Dashboard</a>
+        <a href="stashes.html" class="nav-link">Stashes</a>
+        <a href="settings.html" class="nav-link active">Settings</a>
       </nav>
     </header>
 
     <main class="content">
-      <h2>Extension Settings</h2>
+      <div class="tab-list-header">
+        <h2 class="section-title">Extension Settings</h2>
+      </div>
       
       <div class="settings-group">
         <label class="setting-item">
@@ -33,24 +32,29 @@
           <input type="checkbox" id="auto-freeze-toggle">
         </label>
         
-        <label class="setting-item vertical">
+        <div class="setting-item vertical">
           <span class="setting-label">Inactivity Threshold (Minutes)</span>
           <input type="number" id="freeze-threshold" min="1" max="1440" value="30">
           <span class="setting-desc">Tabs inactive for this long will be discarded to save RAM.</span>
-        </label>
+        </div>
       </div>
 
       <div class="settings-group">
-        <label class="setting-item vertical">
+        <div class="setting-item vertical">
           <span class="setting-label">Whitelist Domains (comma separated)</span>
           <textarea id="whitelist-domains" rows="3" placeholder="youtube.com, mydomain.com"></textarea>
           <span class="setting-desc">These domains will never be automatically frozen.</span>
-        </label>
+        </div>
       </div>
 
-      <button id="btn-save-settings" class="btn primary full-width">Save Settings</button>
+      <button id="btn-save-settings" class="action-btn primary-save">Save Settings</button>
       <div id="save-status" class="status-msg"></div>
     </main>
+
+    <footer class="footer">
+      <span class="version">v2.1</span>
+      <span class="credit">Made with care by Tab Optimizer</span>
+    </footer>
   </div>
   <script type="module" src="settings.js"></script>
 </body>

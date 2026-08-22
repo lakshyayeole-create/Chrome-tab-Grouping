@@ -29,8 +29,8 @@ async function renderStashes() {
         ${stash.tabs.length} tabs saved
       </div>
       <div class="stash-actions">
-        <button class="btn primary btn-restore" data-id="${stash.id}">Restore</button>
-        <button class="btn secondary btn-delete" data-id="${stash.id}">Delete</button>
+        <button class="btn-restore" data-id="${stash.id}">Restore</button>
+        <button class="btn-delete" data-id="${stash.id}">Delete</button>
       </div>
     `;
 
